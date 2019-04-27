@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-mapping package="Hibernatetest.domin">
+	<!-- 
+	class元素 ：配置实体与表的对应关系
+	name：完整类名
+	table：数据库表名-->
+	<class name="Student" table="student">
+	<!--  id:配置主键映射属性
+		name：填写主键对应属性名
+		column：填写表中的主键列名
+		type：填写列的类型，hibernate会自动检测实体的属性类型，
+		not-null:配置该属性是否不能为空
+		length：配置数据库中列的长度。默认值是数据库类型中的最大长度
+		
+		 -->
+		 <id name="studentid" >
+		 <generator class="native"></generator>
+		 </id>
+		 <property name="studentnumber"></property>
+ 		<property name="studentsex" ></property>
+		<property name="studentphone"  ></property>	
+		<property name="studentname" ></property>
+	
+</class>
+
+</hibernate-mapping>
