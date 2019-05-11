@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+	package="zkSocialNetworkProject.shetuan.domain">
+	<class name="CommHistory" table="comm_history">
+		<id name="historyId">
+		</id>
+		<property name="communityId" column="commId"></property>
+		<property name="firstPic"></property>
+		<property name="title"></property>
+		<property name="introduction"></property>
+		<property name="content"></property>
+	</class>
+</hibernate-mapping>

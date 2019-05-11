@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+	package="zkSocialNetworkProject.shetuan.domain">
+	<class name="CommMemberMsg" table="comm_member_msg">
+		<composite-id>
+			<key-property name="uid"></key-property>
+			<key-property name="commId"></key-property>	
+		</composite-id>
+		<property name="job"></property>
+		<property name="department"></property>
+	</class>
+</hibernate-mapping>

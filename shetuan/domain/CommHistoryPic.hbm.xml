@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+	package="zkSocialNetworkProject.shetuan.domain">
+	<class name="CommHistoryPic" table="Comm_history_pic">
+		<id name="historyId">
+		</id>
+		<property name="picPath"></property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+	package="zkSocialNetworkProject.shetuan.domain">
+	<class name="CommAlbumPic" table="comm_album_pic">
+		<id name="pid">
+		</id>
+		<property name="cid"></property>
+		<property name="cphotoPath"></property>
+	</class>
+</hibernate-mapping>
