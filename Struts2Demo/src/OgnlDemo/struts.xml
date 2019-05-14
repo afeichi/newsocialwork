@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<package name="shows" namespace="/" extends="struts-default">
+<action name="Demo1Action" class="OgnlDemo.Demo1Action" method="excute">
+	<result name="success" type="dispatcher">/showvs.jsp</result>
+	
+	<action name="Demo2Action" class="OgnlDemo.Demo2Action" method="excute"></action>
+		<result name="success" type="dispatcher">/form.jsp</result>
+</action>
+
+<action name="Demo3Action" class="OgnlDemo.Demo3Action" method="excute">
+	<result name="success" type="redirectAction">
+		<param name="actionName">Demo1Action</param>
+		<param name="namespace">/</param>
+		<param name="name">{name}</param>
+</result>
+</action>
+</package>
+</struts>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<package name="intercetorDemo" namespace="/" extends="struts-default">
+<interceptors>
+		<!-- 注册拦截器 -->
+			<interceptor name="myInter3"class="InterceptorDemo.MyInterceptor3"></interceptor>
+		<!-- 注册栈 -->
+			<interceptor-stack name-"mystack">
+			<!-- 自定义拦截器引入 -->
+			<interceptor-ref name="myInter3">
+		<!-- 不拦截 -->
+		<param name="excludeMethods">add,delete</param> 
+		<!-- 拦截 -->
+			 <param name="includeMethods">add,delete</param>
+	</interceptor-ref>
+	<!-- 引用默认的拦截器栈(20个) -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>	
+</interceptors>
+<!-- 指定包中的默认拦截器栈 -->
+	<default-interceptor-ref name="myStack"></default-interceptor-ref>
+	<action name="Demo1Action" class="InterceptorDemo.Demo1Action" method="{1}"
+	<!-- 位action单独指定走哪个拦截器 -->
+	<interceptor-ref name="myStack"></interceptor-ref>
+	<result name="success" type="dispatcher">/index.jsp</result>
+	</action>
+</package>
+	<package name="intercetorDemo" namespace="/" extends="struts-default">
+		<action name= "Demo2Action" class="InterceptorDemo.Demo2Action" method="execute">
+		<result name="SUCCESS"type="dispatcher">/tag1.jsp</result>
+		</action>
+		<action name= "Demo3Action" class="InterceptorDemo.Demo3Action" method="execute">
+		<result name="SUCCESS"type="dispatcher">/tag2.jsp</result>
+		</action>
+		</package>
+</struts>
