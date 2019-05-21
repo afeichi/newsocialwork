@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC 
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory >
+	<!--    #hibernate.dialect org.hibernate.dialect.MySQLDialect
+			#hibernate.dialect org.hibernate.dialect.MySQLInnoDBDialect
+			#hibernate.dialect org.hibernate.dialect.MySQLMyISAMDialect
+			#hibernate.connection.driver_class com.mysql.jdbc.Driver
+			#hibernate.connection.url jdbc:mysql:///test
+			#hibernate.connection.username gavin
+			#hibernate.connection.password
+ 	-->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ssh_crm?useSSL=false&amp;serverTimezone=UTC</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">173622</property>
+		
+		<property name="hibernate.connection.isolation">4</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- 要获取当前线程的session就必须配置此项 -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		
+		 <!-- 引入实体配置文件 -->
+		<mapping resource="bingo/domain/Customer.hbm.xml" />
+		<mapping resource="bingo/domain/LinkMan.hbm.xml" />
+		<mapping resource="bingo/domain/User.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
+    
+ 
