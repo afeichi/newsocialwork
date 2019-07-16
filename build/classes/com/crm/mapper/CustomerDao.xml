@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.crm.mapper.CustomerDao">
+	<!-- 总条数 -->
+	<select id="customerCountByQueryVo" parameterType="QueryVo"
+	resultType="Integer">
+	
+	select count(1) from customer
+	<where>
+		<if test="custName!=nulk and custName!=''">
+			cust_name like "%"#{custName}"%"
+		</if>
+		
+		<if test="custSource!=null and custSource!=''">
+		and  cust_source=#{custSource}
+		</if>
+		<if test="custIndustry!=null and custIndusty!=''">
+		and cust_industry=#{custIndustry}
+		</if>
+		<if test="custLevel != null and custLevel != ''">
+				and cust_level = #{custLevel}
+			</if>
+	</where>
+	</select>
+	<!-- 结果集 -->
+	<select id="selectCustomerListByQueryVo" parameterType="Queryvo"
+	resultType="Customer">
+	select * from customer
+	<where>
+	<if test="custName!=null and custName!=''">
+	cust_name like "%"#{custName}"%"
+	</if>
+	<if test="custSource!=null and custSource!==''">
+	and cust_source=#{custSource}
+	</if>
+	<if test="custIndusty!=nll and custIndustry!=''">
+	and cust_industry=#{custIndustry}
+	</if>
+	<if test="custLevel !=null and custLevel != ''">
+	and cust_level =#{custLevel}
+	</if>
+	</where>
+	limit #{startRow},#{size}
+</select>
+
+	<select id="selectCustomerById" parameterType="Integer" 
+	resultType="Customer">
+	select * from customer
+	<where>
+		cust_id= # {id}
+	 </where>
+	</select>
+	
+	<update id="updateCustomerById" parameterType="Customer">
+	update customer
+	<set>
+	<if test="cust_name!=null">
+		cust_name=#{cust_linkman}
+	</if></set>
+	<where>
+	cust_id=#{cust_id}
+	</where>
+	</update>
+
+	<delete id="deleteCustomerById" parameterType="Integer">
+		delete from customer customer where cust_id=#{value}
+	</delete>
+
+</mapper>
